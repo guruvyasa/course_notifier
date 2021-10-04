@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry</title>
+</head>
+<body>
+    <form action="/addEnquiry" method="POST">
+        <div>
+            <label for="student">Student Name</label>
+            <input type="text" id="student" name="student">
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone">
+        </div>
+        <div>
+            <label for="course">Course Name</label>
+            <input type="text" id="course" name="course">
+        </div>
+        <button>Submit</button>
+        
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Phone</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enquiry in enquiries %}
+            <tr>
+                <td>{{enquiry[1]}}</td>
+                <td>{{enquiry[2]}}</td>
+                <td>{{enquiry[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        {% if status %}
+        alert("{{status}}")
+        {% endif %}
+    </script>
+</body>
+</html>
